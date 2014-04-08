@@ -13,7 +13,7 @@ return array(
 	'preload'=>array(
 		'log',
 		'bootstrap',
-		'amcharts',
+		'highcharts',
 	),
 
 	// autoloading model and component classes
@@ -83,10 +83,9 @@ return array(
 		),
 		'bootstrap'=>array(
 			'class'=>'ext.bootstrap.components.Bootstrap',
-//			'responsiveCss'=>true,
 		),
-		'amcharts'=>array(
-			'class'=>'ext.amcharts.components.Amcharts',
+		'highcharts'=>array(
+			'class'=>'ext.highcharts.components.Highcharts',
 		),
 	),
 

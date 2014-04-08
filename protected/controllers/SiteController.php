@@ -98,9 +98,45 @@ class SiteController extends Controller
 		// Retrieve data
 		$data = MeteoStation::model($stationName)->findAll('timeStamp>:timeStamp', array(':timeStamp'=>$limit));
 		
+		// Reformat data
 		$subdata = array_map(create_function('$m','return array($m->currentWindDirection, $m->currentWindSpeed, $m->timeStamp);'),$data);
 		
-		echo json_encode($subdata, JSON_NUMERIC_CHECK);
+		// Create array for latest
+		$latest = array('id'=>$data[0]->id,
+		'timeStamp'=>$data[0]->timeStamp,
+		'currentOutsideTemperature'=>$data[0]->currentOutsideTemperature,
+		'maxOutsideTemperature'=>$data[0]->maxOutsideTemperature,
+		'minOutsideTemperature'=>$data[0]->minOutsideTemperature,
+		'currentOutsideHumidity'=>$data[0]->currentOutsideHumidity,
+		'maxOutsideHumidity'=>$data[0]->maxOutsideHumidity,
+		'minOutsideHumidity'=>$data[0]->minOutsideHumidity,
+		'currentInsideTemperature'=>$data[0]->currentInsideTemperature,
+		'maxInsideTemperature'=>$data[0]->maxInsideTemperature,
+		'minInsideTemperature'=>$data[0]->minInsideTemperature,
+		'currentInsideHumidity'=>$data[0]->currentInsideHumidity,
+		'maxInsideHumidity'=>$data[0]->maxInsideHumidity,
+		'minInsideHumidity'=>$data[0]->minInsideHumidity,
+		'currentHeatIndex'=>$data[0]->currentHeatIndex,
+		'maxHeatIndex'=>$data[0]->maxHeatIndex,
+		'currentWindChill'=>$data[0]->currentWindChill,
+		'minWindChill'=>$data[0]->minWindChill,
+		'currentDewPoint'=>$data[0]->currentDewPoint,
+		'maxDewPoint'=>$data[0]->maxDewPoint,
+		'minDewPoint'=>$data[0]->minDewPoint,
+		'currentPressure'=>$data[0]->currentPressure,
+		'maxPressure'=>$data[0]->maxPressure,
+		'minPressure'=>$data[0]->minPressure,
+		'currentWindSpeed'=>$data[0]->currentWindSpeed,
+		'maxWindSpeed'=>$data[0]->maxWindSpeed,
+		'currentWindDirection'=>$data[0]->currentWindDirection,
+		'averageWindSpeed2Minutes'=>$data[0]->averageWindSpeed2Minutes,
+		'averageWindSpeed10Minutes'=>$data[0]->averageWindSpeed10Minutes,
+		'windGust'=>$data[0]->windGust);
+		
+		// Create table of data to send
+		$allData = array('latest'=>$latest, 'data'=>$subdata);
+		
+		echo json_encode($allData, JSON_NUMERIC_CHECK);
 		Yii::app()->end();
 	}
 
