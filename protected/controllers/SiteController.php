@@ -9,7 +9,7 @@ class SiteController extends Controller
 	{
 		return array(
 			array('allow',
-				  'actions'=>array('index', 'error', 'data'),
+				  'actions'=>array('index', 'error', 'data', 'info'),
 				  'users'=>array('*'),
 				 ),
 			array('deny',
@@ -70,6 +70,15 @@ class SiteController extends Controller
 		$stations = Stations::model()->findAll();
 		
 		$this->render('data', array('stations'=>$stations));
+	}
+
+	/**
+	 * This is the default 'index' action that is invoked
+	 * when an action is not explicitly requested by users.
+	 */
+	public function actionInfo()
+	{
+		$this->render('info');
 	}
 	
 

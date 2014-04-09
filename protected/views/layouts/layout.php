@@ -258,11 +258,11 @@
     <![endif]-->
 
     <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="images/ico/favicon.png">
   </head>
 
   <body>
@@ -279,16 +279,18 @@
             'bootstrap.widgets.TbNavbar',
             array(
                 'type' => 'inverse',
-                'brand' => 'WeatherLink',
+                'brand' => 'SwissWind',
                 'brandUrl' => array('/site/index'),
-                'collapse' => true, // requires bootstrap-responsive.css
+                'collapse' => true,
                 'fixed' => false,
                 'items' => array(
                     array(
                         'class' => 'bootstrap.widgets.TbMenu',
                         'items' => array(
-                            array('label'=>'Home', 'url'=>array('/site/index')),
-                            array('label'=>'Data', 'url'=>array('/site/data')),
+                            array('label'=>'Vent', 'icon'=>'flag', 'url'=>array('/site/data')),
+                            array('label'=>'Home', 'icon'=>'home', 'url'=>array('/site/index')),
+                            array('label'=>'Info', 'icon'=>'info-sign', 'url'=>array('/site/info')),
+						'htmlOptions' => 'gray-icons',
                         ),
                     ),
                 ),
@@ -303,6 +305,7 @@
 
     <!-- Carousel
     ================================================== -->
+    <!--
     <div id="myCarousel" class="carousel slide">
       <div class="carousel-inner">
         <div class="item active">
@@ -338,7 +341,7 @@
       </div>
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
-    </div><!-- /.carousel -->
+    </div>--><!-- /.carousel -->
 
 
 
@@ -346,7 +349,7 @@
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
-    <div class="container marketing">
+    <div class="container marketing" style="margin-top:100px">
     
       <?php echo $content; ?>
       
@@ -355,7 +358,7 @@
       <!-- FOOTER -->
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p>Data collected from <a href="http://www.weatherlink.com/">WeatherLink</a> &middot; Graphics powered by <a href="www.highcharts.com">Highcharts</a></p>
       </footer>
 
     </div><!-- /.container -->

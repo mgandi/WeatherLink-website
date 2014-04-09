@@ -2,7 +2,7 @@
 /* @var $this SiteController */
 /* @var $stations Stations[] */
 
-$this->pageTitle=Yii::app()->name . ' - Data';
+$this->pageTitle=Yii::app()->name . ' - Situation actuelle du vent';
 
 // Register client script
 Yii::app()->clientScript->registerScript('dataScript', "
@@ -236,7 +236,7 @@ function updateClassic(data)
 
 function updateSummary(latest)
 {
-	$('<table class=\"table\"><thead><tr><td>R&eacute;capitulatif</td><td>Courant</td><td>Maximum du jour</td><td>Minimum du jour</td></tr></thead><tbody><tr><td>Temp&eacute;rature ext&eacute;rieure</td><td>'+latest.currentOutsideTemperature+'&deg;</td><td>'+latest.maxOutsideTemperature+'&deg;</td><td>'+latest.minOutsideTemperature+'&deg;</td></tr></tbody></table>').appendTo('#summary');
+	$('<table class=\"table\"><thead><tr><th>R&eacute;capitulatif</th><th>Courant</th><th>Maximum du jour</th><th>Minimum du jour</th></tr></thead><tbody><tr><td>Temp&eacute;rature</td><td>'+latest.currentOutsideTemperature+' C</td><td>'+latest.maxOutsideTemperature+' C</td><td>'+latest.minOutsideTemperature+' C</td></tr><tr><td>Humidit&eacute;</td><td>'+latest.currentOutsideHumidity+'%</td><td>'+latest.maxOutsideHumidity+'%</td><td>'+latest.minOutsideHumidity+'%</td></tr><tr><td>Point de ros&eacute;e</td><td>'+latest.currentDewPoint+' C</td><td>'+latest.maxDewPoint+' C</td><td>'+latest.minDewPoint+' C</td></tr><tr><td>Pression atmosph&eacute;rique</td><td>'+latest.currentPressure+'mb</td><td>'+latest.maxPressure+'mb</td><td>'+latest.minPressure+'mb</td></tr><tr><td>Vitesse du vent</td><td>'+latest.currentWindSpeed+' km/h</td><td>'+latest.maxWindSpeed+' km/h</td><td>&nbsp;</td></tr><tr><td>Direction du vent</td><td>'+latest.currentWindDirection+'&deg;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody><thead><tr style=\"height:72px;\"><th>Vent</th><th>Sur 2 minutes</th><th>Sur 10 minutes</th><th>&nbsp;</th></tr></thead><tbody><tr><td>Vitesse du vent en moyenne</td><td>'+latest.averageWindSpeed2Minutes+' km/h</td><td>'+latest.averageWindSpeed10Minutes+' km/h</td><td>&nbsp;</td></tr><td>Rafales de vent</td><td>'+latest.windGust+' km/h</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table>').appendTo('#summary');
 }
 
 function loadData(success, stationName, deepnes)

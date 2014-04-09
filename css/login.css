@@ -1,0 +1,79 @@
+/* CSS Document */
+
+.inner-body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.form-signin {
+  max-width: 300px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  
+  background-color:#fafafa;
+  background-image:-moz-linear-gradient(top, #ffffff, #f2f2f2);
+  background-imageebkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#f2f2f2));
+  background-imageebkit-linear-gradient(top, #ffffff, #f2f2f2);
+  background-image-linear-gradient(top, #ffffff, #f2f2f2);
+  background-image:linear-gradient(to bottom, #ffffff, #f2f2f2);
+  background-repeat:repeat-x;filterrogidXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
+  border:1px solid #d4d4d4;
+  
+  color: #ffffff;
+  
+  background-color:#1b1b1b;
+  background-image:-moz-linear-gradient(top, #444444, #111111);
+  background-imageebkit-gradient(linear, 0 0, 0 100%, from(#444444), to(#111111));
+  background-imageebkit-linear-gradient(top, #444444, #111111);
+  background-image-linear-gradient(top, #444444, #111111);
+  background-image:linear-gradient(to bottom, #444444, #111111);
+  background-repeat:repeat-x;filterrogidXImageTransform.Microsoft.gradient(startColorstr='#ff444444', endColorstr='#ff111111', GradientType=0);
+  border-color:#252525;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin input[type="text"],
+.form-signin input[type="password"] {
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+  
+  color:#ffffff;
+  background-color:#515151;
+  border-color:#111111;
+  -webkit-box-shadow:inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.15);
+  -moz-box-shadow:inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.15);
+  box-shadow:inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.15);
+  -webkit-transition:none;
+  -moz-transition:none;
+  -o-transition:none;transition:none;
+  /*
+  background-image:-moz-linear-gradient(top, #303030, #515151);
+  background-imageebkit-gradient(linear, 0 0, 0 100%, from(#303030), to(#515151));
+  background-imageebkit-linear-gradient(top, #303030, #515151);
+  background-image-linear-gradient(top, #303030, #515151);
+  background-image:linear-gradient(to bottom, #303030, #515151);
+  background-repeat:repeat-x;filterrogidXImageTransform.Microsoft.gradient(startColorstr='#ff303030', endColorstr='#ff515151', GradientType=0);
+  */
+}
+
+div.login {
+  background-color:#1b1b1b;
+  background-image:-moz-linear-gradient(top, #222222, #111111);
+  background-imageebkit-gradient(linear, 0 0, 0 100%, from(#222222), to(#111111));
+  background-imageebkit-linear-gradient(top, #222222, #111111);
+  background-image-linear-gradient(top, #222222, #111111);
+  background-image:linear-gradient(to bottom, #222222, #111111);
+  background-repeat:repeat-x;filterrogidXImageTransform.Microsoft.gradient(startColorstr='#ff222222', endColorstr='#ff111111', GradientType=0);border-color:#252525;
+}
