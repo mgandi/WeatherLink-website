@@ -227,16 +227,18 @@ function drawClassic(data)
 
 function updateClassic(data)
 {
+	var serie = $('#chartclassic').highcharts().series[0];
+	
 	// Re-format and add points
 	data.forEach(function(entry) {
 		var p = [entry[2], entry[1], entry[0]];
-		$('#chartclassic').highcharts().series[0].addPoint(p, true, true);
+		serie.addPoint(p, true, (serie.data.length >= 240));
 	});
 }
 
 function updateSummary(latest)
 {
-	$('<table class=\"table\"><thead><tr><th>R&eacute;capitulatif</th><th>Courant</th><th>Maximum du jour</th><th>Minimum du jour</th></tr></thead><tbody><tr><td>Temp&eacute;rature</td><td>'+latest.currentOutsideTemperature+' C</td><td>'+latest.maxOutsideTemperature+' C</td><td>'+latest.minOutsideTemperature+' C</td></tr><tr><td>Humidit&eacute;</td><td>'+latest.currentOutsideHumidity+'%</td><td>'+latest.maxOutsideHumidity+'%</td><td>'+latest.minOutsideHumidity+'%</td></tr><tr><td>Point de ros&eacute;e</td><td>'+latest.currentDewPoint+' C</td><td>'+latest.maxDewPoint+' C</td><td>'+latest.minDewPoint+' C</td></tr><tr><td>Pression atmosph&eacute;rique</td><td>'+latest.currentPressure+'mb</td><td>'+latest.maxPressure+'mb</td><td>'+latest.minPressure+'mb</td></tr><tr><td>Vitesse du vent</td><td>'+latest.currentWindSpeed+' km/h</td><td>'+latest.maxWindSpeed+' km/h</td><td>&nbsp;</td></tr><tr><td>Direction du vent</td><td>'+latest.currentWindDirection+'&deg;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody><thead><tr style=\"height:72px;\"><th>Vent</th><th>Sur 2 minutes</th><th>Sur 10 minutes</th><th>&nbsp;</th></tr></thead><tbody><tr><td>Vitesse du vent en moyenne</td><td>'+latest.averageWindSpeed2Minutes+' km/h</td><td>'+latest.averageWindSpeed10Minutes+' km/h</td><td>&nbsp;</td></tr><td>Rafales de vent</td><td>'+latest.windGust+' km/h</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table>').appendTo('#summary');
+	$('#summary').empty().append('<table class=\"table\"><thead><tr><th>R&eacute;capitulatif</th><th>Courant</th><th>Maximum du jour</th><th>Minimum du jour</th></tr></thead><tbody><tr><td>Temp&eacute;rature</td><td>'+latest.currentOutsideTemperature+' C</td><td>'+latest.maxOutsideTemperature+' C</td><td>'+latest.minOutsideTemperature+' C</td></tr><tr><td>Humidit&eacute;</td><td>'+latest.currentOutsideHumidity+'%</td><td>'+latest.maxOutsideHumidity+'%</td><td>'+latest.minOutsideHumidity+'%</td></tr><tr><td>Point de ros&eacute;e</td><td>'+latest.currentDewPoint+' C</td><td>'+latest.maxDewPoint+' C</td><td>'+latest.minDewPoint+' C</td></tr><tr><td>Pression atmosph&eacute;rique</td><td>'+latest.currentPressure+'mb</td><td>'+latest.maxPressure+'mb</td><td>'+latest.minPressure+'mb</td></tr><tr><td>Vitesse du vent</td><td>'+latest.currentWindSpeed+' km/h</td><td>'+latest.maxWindSpeed+' km/h</td><td>&nbsp;</td></tr><tr><td>Direction du vent</td><td>'+latest.currentWindDirection+'&deg;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody><thead><tr style=\"height:72px;\"><th>Vent</th><th>Sur 2 minutes</th><th>Sur 10 minutes</th><th>&nbsp;</th></tr></thead><tbody><tr><td>Vitesse du vent en moyenne</td><td>'+latest.averageWindSpeed2Minutes+' km/h</td><td>'+latest.averageWindSpeed10Minutes+' km/h</td><td>&nbsp;</td></tr><td>Rafales de vent</td><td>'+latest.windGust+' km/h</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table>');
 }
 
 function loadData(success, stationName, deepnes)
@@ -287,6 +289,7 @@ window.setInterval(function() {
 		captureNextGraphUpdate();
 		updateWindRose(data.data);
 		updateClassic(data.data);
+		updateSummary(data.latest);
 	}, currentStation, 60)
 }, 60 * 1000);
 
